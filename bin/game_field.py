@@ -48,11 +48,14 @@ def Placing_mines_in_game_board(game_board):
 def main():
     game_board=create_board()
     Touching_the_flag(game_board)
-    Placing_mines_in_game_board(game_board)
     Touching_the_soldier(game_board)
+    Placing_mines_in_game_board(game_board)
+
     for row in game_board:
         for col in row:
             print(col, end=" ")
         print()
+
+
 
 main()
