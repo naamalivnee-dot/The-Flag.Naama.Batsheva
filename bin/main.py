@@ -15,4 +15,5 @@ def location_y_on_screen(j):
 
 
 def main():
+    pass
 main()
