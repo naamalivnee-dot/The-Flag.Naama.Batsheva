@@ -32,8 +32,8 @@ def Touching_the_soldier(game_board):
 
 
 def Placing_mines_in_game_board(game_board):
-    bool=False
     for i in range(20):
+        bool = False
         while bool==False:
             row=random.randint(0, consts.ROWS_ON_THE_GAME_BOARD-1)
             col=random.randint(0, consts.COLUMNS_ON_THE_GAME_BOARD-1)
@@ -42,6 +42,7 @@ def Placing_mines_in_game_board(game_board):
                 bool=True
             else:
                 bool=False
+
 
 
 def main():
