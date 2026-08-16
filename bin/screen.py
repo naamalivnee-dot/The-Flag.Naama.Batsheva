@@ -29,9 +29,6 @@ def bush():
     pygame.display.flip()
     return screen
 
-
-
-
 def display_screen(screen):
     running = True
     while running:
