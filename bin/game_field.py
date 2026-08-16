@@ -40,6 +40,7 @@ def Placing_mines_in_game_board(game_board):
             if game_board[row][col] != consts.MINE_SQUARE and game_board[row][col]!=consts.FLAG_SQUARE and  game_board[row][col] != consts.SOLDIER_SQUARE:
                 game_board[row][col]=consts.MINE_SQUARE
                 bool=True
+                break
             else:
                 bool=False
     return game_board
