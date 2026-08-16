@@ -3,7 +3,7 @@ import consts
 import random
 
 def blank_screen():
-    screen = pygame.display.set_mode((1000,500))
+    screen = pygame.display.set_mode((consts.WINDOW_WIDTH,consts.WINDOW_HEIGHT))
     pygame.display.flip()
     return screen
 
@@ -17,10 +17,10 @@ def green_screen():
 def bush():
     screen = green_screen()
     image = pygame.image.load('grass.png')
-    for i in range(20):
-        img_small = pygame.transform.scale(image, (40, 30))
-        x = random.randint(0,920)
-        y = random.randint(0,440)
+    for i in range(consts.CONVERT_TO_SCREEN):
+        img_small = pygame.transform.scale(image, (consts.GRASS_HEIGHT, consts.GRASS_WIDTH))
+        x = random.randint(consts.MAN_WIDTH, consts.WINDOW_WIDTH - consts.GRASS_WIDTH)
+        y = random.randint(consts.MAN_HEIGHT, consts.WINDOW_HEIGHT - consts.GRASS_HEIGHT)
         screen.blit(img_small, (x, y))
     #screen.blit(image, (100, 100))
     pygame.display.flip()
@@ -29,15 +29,23 @@ def bush():
 def net_screen():
     screen = blank_screen()
     color_line = consts.BACKGROUND_COLOR_GREEN
-    for i in range(500):
-        x = i * 20
-        pygame.draw.line(screen, color_line, (x, 0), (x, 1000))
+    for i in range(consts.WINDOW_HEIGHT):
+        x = i * consts.CONVERT_TO_SCREEN
+        pygame.draw.line(screen, color_line, (x, 0), (x, consts.WINDOW_WIDTH))
         pygame.display.flip()
-    for i in range(1000):
-        y = i * 20
-        pygame.draw.line(screen, color_line, (0, y), (1000,y))
+    for i in range(consts.WINDOW_WIDTH):
+        y = i * consts.CONVERT_TO_SCREEN
+        pygame.draw.line(screen, color_line, (0, y), (consts.WINDOW_WIDTH, y))
         pygame.display.flip()
     return screen
+
+
+def mine_screen():
+    screen = net_screen()
+    image = pygame.image.load('mine.png')
+    img_small = pygame.transform.scale(image, (consts.MINE_HEIGHT, consts.MINE_WIDTH))
+
+
 
 
 def display_screen(screen):
