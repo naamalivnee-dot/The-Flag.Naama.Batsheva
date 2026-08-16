@@ -1,0 +1,13 @@
+#Constant variables in our game
+ROWS_ON_THE_GAME_BOARD=25
+COLUMNS_ON_THE_GAME_BOARD=50
+
+GAME_OPENING_TEXT_FOR_SOLDIER="Welcome to the game \n have fun!"
+print(GAME_OPENING_TEXT_FOR_SOLDIER)
+#window_size
+#WINDOW_HEIGHT=
+#WINDOW_WIDTH=
+
+#BACKGROUND_COLOR_GREEN = (, ,)
+
+
