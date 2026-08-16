@@ -17,4 +17,13 @@ def handle_user_events():
             pygame.quit()
             sys.exit()
 
-        if event.type == pygame.KEYDOWN
+        if event.type == pygame.KEYDOWN:
+            if event.type == KEYDOWN:
+                if (event.key == pygame.K_LEFT):
+                    sprite = pygame.image.load('left.png')
+                elif (event.key == pygame.K_RIGHT):
+                    sprite = pygame.image.load('right.png')
+                elif (event.key == pygame.K_UP):
+                    sprite = pygame.image.load('up.png')
+                elif (event.key == pygame.K_DOWN):
+                    sprite = pygame.image.load('down.png')
