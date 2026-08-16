@@ -103,4 +103,4 @@ def main_net_screen():
     met = game_field.Placing_mines_in_game_board(game_board)
     display_screen(mine_screen(met))
 main_net_screen()
-
+#qhshd
