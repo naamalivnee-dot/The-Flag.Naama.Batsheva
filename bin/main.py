@@ -17,4 +17,4 @@ def handle_user_events():
             pygame.quit()
             sys.exit()
 
-        if event.type == pygame.KEYDOWN:
+        if event.type == pygame.KEYDOWN
