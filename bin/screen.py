@@ -39,4 +39,4 @@ def display_screen(screen):
             if event.type == pygame.QUIT:
                 running = False
 
-display_screen(bush())
+#display_screen(bush())
