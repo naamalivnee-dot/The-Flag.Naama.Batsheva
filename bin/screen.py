@@ -61,7 +61,7 @@ def mine_screen(met):
     return screen
 
 
-'''def flag_on_screen(met):
+def flag_on_screen(met):
     screen = grass()
     image = pygame.image.load('flag.png')
     flag_height = consts.FLAG_HEIGHT * consts.CONVERT_TO_SCREEN
@@ -74,7 +74,7 @@ def mine_screen(met):
                 y = j * consts.CONVERT_TO_SCREEN
                 screen.blit(img_small, (x, y))
     pygame.display.flip()
-    return screen'''
+    return screen
 
 
 
@@ -90,12 +90,12 @@ def display_screen(screen):
 display_screen(grass())
 display_screen(net_screen())
 
-'''def main_grass_screen():
+def main_grass_screen():
     game_board = game_field.create_board()
-    met = game_field.Flag_position(game_board)
+    met = game_field.Placing_mines_in_game_board(game_board)
     display_screen(flag_on_screen(met))
     pass
-main_grass_screen()'''
+main_grass_screen()
 
 
 def main_net_screen():
