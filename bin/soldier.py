@@ -23,12 +23,9 @@ def handle_user_events():
             elif (pygame.K_DOWN == event.key):
                 print("down")
 
-def Flag_position():
-    consts.ROWS_ON_THE_GAME_BOARD
-    consts.COLUMNS_ON_THE_GAME_BOARD
-    Flag_row=
 
 
 
-def Touching_the_flag():
+
+
 
