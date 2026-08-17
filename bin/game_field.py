@@ -47,10 +47,18 @@ def moving_soldier_piece(game_board):
     return game_board
 
 
-def  Updated_board(game_board):
+def  Updated_board():
     game_board=create_board()
     Touching_the_flag(game_board)
     Touching_the_soldier(game_board)
     Placing_mines_in_game_board(game_board)
     game_board=moving_soldier_piece(game_board)
     return game_board
+
+def main():
+    game_board=Updated_board()
+    for row in game_board:
+        for col in row:
+            print(col, end=" ")
+        print()
+main()

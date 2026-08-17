@@ -1,8 +1,8 @@
 import pygame
 import sys
-import const
+import consts
 
-from bin import game_field
+import game_field
 
 pygame.init()
 
@@ -36,14 +36,25 @@ def handle_user_events(row,col):
 
     return row,col
 
-def soldier_touches_the_flag():
-    if game_field.game_board:
+def Moving_soldier_on_the_game_board():
+    game_board = game_field.Updated_board()
+    row, col=handle_user_events(4, 5)##
+    if game_board[row][col]==consts.MINE_SQUARE:
+        return True
+    elif col>0 and game_board[row][col-1]==consts.MINE_SQUARE:
+        return True
 
+def soldier_touches_the_flag():
+    game_board=game_field.Updated_board()
+    for row in range(consts.ROWS_ON_THE_GAME_BOARD):
+        for col in range(consts.COLUMNS_ON_THE_GAME_BOARD):
+            if game_board[row][col]==consts.SOLDIER_MOVING_SQUARE:
+                if game_board[row][col]==consts.SOLDIER_SQUARE:
 
 
 def main():
-    soldier_touches_the_flag()
 
+main()
 
 
 
