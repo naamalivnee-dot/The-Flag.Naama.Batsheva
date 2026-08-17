@@ -54,8 +54,8 @@ def mine_screen(met):
     for i in range(len(met)):
         for j in range(len(met[i])):
             if met[i][j] == consts.MINE_SQUARE:
-                x = i * consts.CONVERT_TO_SCREEN
-                y = j * consts.CONVERT_TO_SCREEN
+                y = i * consts.CONVERT_TO_SCREEN
+                x = j * consts.CONVERT_TO_SCREEN
                 screen.blit(img_small, (x, y))
     pygame.display.flip()
     return screen
@@ -67,12 +67,16 @@ def flag_on_screen(met):
     flag_height = consts.FLAG_HEIGHT * consts.CONVERT_TO_SCREEN
     flag_width = consts.FLAG_WIDTH * consts.CONVERT_TO_SCREEN
     img_small = pygame.transform.scale(image, (flag_width, flag_height))
-    for i in range(len(met)):
-        for j in range(len(met[i])):
-            if met[i][j] == consts.FLAG_SQUARE:
-                x = i * consts.CONVERT_TO_SCREEN
-                y = j * consts.CONVERT_TO_SCREEN
-                screen.blit(img_small, (x, y))
+    x = consts.WINDOW_WIDTH - flag_width
+    y = consts.WINDOW_HEIGHT - flag_height
+    screen.blit(img_small, (x, y))
+
+    #for i in range(len(met)):
+     #   for j in range(len(met[i])):
+      #      if met[i][j] == consts.FLAG_SQUARE:
+       #         x = i * consts.CONVERT_TO_SCREEN
+        #        y = j * consts.CONVERT_TO_SCREEN
+                #screen.blit(img_small, (x, y))
     pygame.display.flip()
     return screen
 
