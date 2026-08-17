@@ -8,6 +8,9 @@ pygame.init()
 
 
 def handle_user_events(row,col):
+    game_board = game_field.Updated_board()
+    game_board[row][col]=consts.NO_MINE
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -31,28 +34,51 @@ def handle_user_events(row,col):
                     row-=1
 
             elif event.key == pygame.K_DOWN:
-                if row<consts.COLUMNS_ON_THE_GAME_BOARD-4:
+                if row<consts.ROWS_ON_THE_GAME_BOARD-4:
                     row+=1
 
+    game_board[row][col] = consts.SOLDIER_MOVING_SQUARE
     return row,col
 
-def Moving_soldier_on_the_game_board():
+def soldier_touches_the_mines(row,col): #index of SOLDIER_MOVING_SQUARE
     game_board = game_field.Updated_board()
-    row, col=handle_user_events(4, 5)##
-    if game_board[row][col]==consts.MINE_SQUARE:
-        return True
-    elif col>0 and game_board[row][col-1]==consts.MINE_SQUARE:
-        return True
+    if col<consts.COLUMNS_ON_THE_GAME_BOARD:
+        if game_board[row][col+1]==consts.MINE_SQUARE:
+            return True
 
-def soldier_touches_the_flag():
-    game_board=game_field.Updated_board()
-    for row in range(consts.ROWS_ON_THE_GAME_BOARD):
-        for col in range(consts.COLUMNS_ON_THE_GAME_BOARD):
-            if game_board[row][col]==consts.SOLDIER_MOVING_SQUARE:
-                if game_board[row][col]==consts.SOLDIER_SQUARE:
+    if row<consts.ROWS_ON_THE_GAME_BOARD:
+        if game_board[row+1][col] == consts.MINE_SQUARE:
+            return True
+
+    else:
+        return False
+
+def Identification_of_the_soldier_body(row,col): #index of SOLDIER_MOVING_SQUARE
+    soldier_body_list=[]
+    for i in range(row+1,row+4):
+        for j in range(col,col+1):
+            soldier_body_list.append(i)
+            soldier_body_list.append(j)
+
+
+def soldier_touches_the_flag(row,col): #index of SOLDIER_MOVING_SQUARE
+    game_board = game_field.Updated_board()
+    for i in range(row+1,row+4):
+        for j in range(col,col+1):
+            if game_board[i][j+1] == consts.FLAG_SQUARE:
+                return True
+                break
+    else:
+        return False
 
 
 def main():
+    row,col=handle_user_events(4, 2)
+    if soldier_touches_the_mines(row,col)==True:
+        print("Soldier touches them!")
+        exit()
+    if soldier_touches_the_flag(row,col)==True:
+        print("win")
 
 main()
 
