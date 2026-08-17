@@ -32,17 +32,13 @@ def Touching_the_soldier(game_board):
 
 
 def Placing_mines_in_game_board(game_board):
-    for i in range(20):
-        bool = False
-        while bool==False:
-            row=random.randint(0, consts.ROWS_ON_THE_GAME_BOARD-1)
-            col=random.randint(0, consts.COLUMNS_ON_THE_GAME_BOARD-1)
-            if game_board[row][col] != consts.MINE_SQUARE and game_board[row][col]!=consts.FLAG_SQUARE and  game_board[row][col] != consts.SOLDIER_SQUARE:
-                game_board[row][col]=consts.MINE_SQUARE
-                bool=True
-                break
-            else:
-                bool=False
+    placed_mines=0
+    while placed_mines<20:
+        row=random.randint(0, consts.ROWS_ON_THE_GAME_BOARD-1)
+        col=random.randint(0, consts.COLUMNS_ON_THE_GAME_BOARD-1)
+        if game_board[row][col] != consts.MINE_SQUARE and game_board[row][col]!=consts.FLAG_SQUARE and  game_board[row][col] != consts.SOLDIER_SQUARE:
+            game_board[row][col]=consts.MINE_SQUARE
+            placed_mines += 1
     return game_board
 
 
