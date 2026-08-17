@@ -39,15 +39,21 @@ def Placing_mines_in_game_board(game_board):
         if game_board[row][col] != consts.MINE_SQUARE and game_board[row][col]!=consts.FLAG_SQUARE and  game_board[row][col] != consts.SOLDIER_SQUARE:
             game_board[row][col]=consts.MINE_SQUARE
             placed_mines += 1
-    return game_board
 
+
+
+def moving_soldier_piece(game_board):
+    game_board[consts.SOLDIER_HEIGHT-1][consts.SOLDIER_WIDTH-1]=consts.SOLDIER_MOVING_SQUARE
+    return game_board
 
 
 def main():
     game_board=create_board()
     Touching_the_flag(game_board)
     Touching_the_soldier(game_board)
-    game_board=Placing_mines_in_game_board(game_board)
+    Placing_mines_in_game_board(game_board)
+    game_board=moving_soldier_piece(game_board)
+
 
     for row in game_board:
         for col in row:
