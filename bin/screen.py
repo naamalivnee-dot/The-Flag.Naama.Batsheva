@@ -119,7 +119,7 @@ def display_screen(screen):
                 running = False
 
 #display_screen(flag())
-display_screen(draw_soldier(game_field.Updated_board()))
+#display_screen(draw_soldier(game_field.Updated_board()))
 
 
 
@@ -131,10 +131,28 @@ def mine_screen():
 #display_screen(mine_screen())
 #main_net_screen()
 
-display_screen(draw_night_soldier(game_field.Updated_board()))
+#display_screen(draw_night_soldier(game_field.Updated_board()))
 
 
-#def winning_screen():
+def winning_screen():
+    pygame.init()
+    white = (255, 255, 255)
+    green = (0, 255, 0)
+    blue = (0, 0, 128)
+    display_surface = draw_soldier(game_field.Updated_board())
+    #pygame.display.set_caption('Show Text')
+    font = pygame.font.Font('freesansbold.ttf', 100)
+    text = font.render('you win!', True, consts.BLACK, consts.WHITE)
+    textRect = text.get_rect()
+    textRect.center = (500, 200)
+    while True:
+        display_surface.blit(text, textRect)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            pygame.display.update()
+winning_screen()
     #screen = draw_soldier(game_field.Updated_board())
     #pygame.init()
     #font = pygame.font.Font('freesansbold.ttf', 100)
