@@ -17,8 +17,8 @@ def green_screen():
     pygame.display.flip()
     return screen
 
-def grass():
-    screen = green_screen()
+def grass(screen):
+    #screen = green_screen()
     image = pygame.image.load('grass.png')
     grass_height = consts.GRASS_HEIGHT * consts.CONVERT_TO_SCREEN
     grass_width = consts.GRASS_WIDTH * consts.CONVERT_TO_SCREEN
@@ -59,8 +59,8 @@ def mine(met):
     return screen
 
 
-def flag():
-    screen = grass()
+def flag(screen):
+    #screen = grass()
     image = pygame.image.load('flag.png')
     flag_height = consts.FLAG_HEIGHT * consts.CONVERT_TO_SCREEN
     flag_width = consts.FLAG_WIDTH * consts.CONVERT_TO_SCREEN
@@ -71,18 +71,18 @@ def flag():
     pygame.display.flip()
     return screen
 
-def draw_soldier(met):
-    screen = flag()
+def draw_soldier(screen, row, col):
+    #screen = flag()
     image = pygame.image.load('soldier.png')
     soldier_height = consts.SOLDIER_HEIGHT * consts.CONVERT_TO_SCREEN
     soldier_width = consts.SOLDIER_WIDTH * consts.CONVERT_TO_SCREEN
     img_small = pygame.transform.scale(image, (soldier_width, soldier_height))
-    for i in range(len(met)):
+    """for i in range(len(met)):
         for j in range(len(met[i])):
             if met[i][j] == consts.SOLDIER_MOVING_SQUARE:
                 y = i
-                x = j
-                screen.blit(img_small, (x, y))
+                x = j"""
+    screen.blit(img_small, (col * consts.CONVERT_TO_SCREEN,row*consts.CONVERT_TO_SCREEN))
     pygame.display.flip()
     return screen
 
@@ -105,7 +105,9 @@ def draw_night_soldier(met):
     return screen
 
 
-
+def screen(row, col):
+    screen = draw_soldier(flag(grass(green_screen())),row,col)
+    return screen
 
 
 
@@ -152,7 +154,8 @@ def winning_screen():
                 pygame.quit()
                 quit()
             pygame.display.update()
-winning_screen()
+#winning_screen()
+
     #screen = draw_soldier(game_field.Updated_board())
     #pygame.init()
     #font = pygame.font.Font('freesansbold.ttf', 100)

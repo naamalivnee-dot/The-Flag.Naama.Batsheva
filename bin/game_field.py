@@ -61,4 +61,4 @@ def main():
         for col in row:
             print(col, end=" ")
         print()
-main()
+# main()

@@ -8,11 +8,11 @@ import soldier
 
 def main():
     pygame.init()
-    met=game_field.Updated_board()
-    while screen.display_screen(screen)==True:
-        row,col=soldier.handle_user_events(4, 2)
-
-        screen.draw_soldier(met)
+    mat=game_field.Updated_board()
+    #while screen.display_screen(screen)==True:
+    row,col=soldier.handle_user_events(mat, 4, 2)
+    screen.display_screen(screen.screen(row,col))
+    return screen
 
 
 
